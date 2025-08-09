@@ -1,43 +1,134 @@
-# CRM
 
-## Definição do Produtos
 
-**CRM** (*Customer Relationship Management*, ou Gestão de Relacionamento com o Cliente) é um conjunto de práticas e tecnologias focadas no relacionamento da empresa com seus prospects e clientes, com o objetivo de gerar vendas. Mais comumente, a sigla se refere a um sistema que permite gerenciar o time comercial e seus pontos de contato com os clientes de uma empresa. o CRM é usado, principalmente, para reunir dados de clientes, histórico de negociações e tarefas do time comercial, o ERP tem a função de integrar todas as áreas da empresa, controlar informações e dar maior poder de gestão e decisão para a gestão.
+# CRM – Projeto de Curso (4 Semanas)
 
-## Requisitos Funcionais
+## 📖 Definição do Produto
 
-* Usuário poderá se cadastrar no sistema
+O **CRM** (*Customer Relationship Management*, ou Gestão de Relacionamento com o Cliente) é um conjunto de práticas e tecnologias voltadas ao relacionamento da empresa com prospects e clientes, visando aumentar as vendas e melhorar a gestão comercial.
 
-* Usuário poderá realizar o login no sistema
+O sistema desenvolvido neste curso permite:
 
-* Usuário poderá cadastrar um 'lead' que deve conter as seguintes informações: email, nome, telefone, endereço, descrição da venda
+- Reunir dados de clientes.
 
-* Usuário poderá alterar as informações de um 'lead'
+- Gerenciar histórico de negociações.
 
-* Usuário poderá deletar um lead
+- Acompanhar tarefas do time comercial.
 
-* Usuário poderá colocar o 'lead' como 'fechado'. O que significa que foi vendido para aquele cliente
+- Integrar e otimizar processos de vendas.
+
+---
+
+## 🎯 Requisitos Funcionais
+
+- Usuário poderá se cadastrar no sistema.
+
+- Usuário poderá realizar login.
+
+- Usuário poderá cadastrar um *lead* com:
   
-  * Ao colocar como fechado, deverá inserir o preço e uma descrição de fechamento
-
-* Usuário poderá colocar o 'lead' como 'perda'. O que signfica que aquela venda foi perdida
+  - Email
   
-  * Ao colocar o lead como perda, deverá inserir o motivo da perda
+  - Nome
+  
+  - Telefone
+  
+  - Descrição da venda
 
-## Requisitos Não Funcionais
+- Usuário poderá consultar todos os*leads*.
 
-* Ter micro-interações
+- Usuário poderá consultar os seus *lead*.
 
-* Ser intuitivo
+---
 
-* Ter um tempo de resposta <= 100ms
+## ⚙️ Requisitos Não Funcionais
 
-## Referências Visuais
+- Interface intuitiva.
 
-![O melhor sistema CRM para gestão de clientes – TOTVS](https://www.totvs.com/wp-content/uploads/2021/02/crm-gestao_clientes_mod03_atividades.jpg)
+- Micro-interações para melhorar a experiência.
 
-![Gerenciamento de clientes: tudo o que você precisa saber](https://res.cloudinary.com/monday-blogs/w_1009,h_668,c_fit/fl_lossy,f_auto,q_auto/wp-blog/2023/02/CRM-software-Deal_Opportunity-Image-board-1.png)
+- Tempo de resposta ≤ 100ms.
 
-## Referências
+---
 
-[CRM: o que é, vantagens, como usar e tipos](https://www.rdstation.com/blog/vendas/o-que-e-crm)
+## 📌 Endpoints da API
+
+Os endpoints a seguir foram extraídos do arquivo **Requisições.json**.
+
+### 👤 Usuário
+
+| Método   | Rota                   | Descrição           |
+| -------- | ---------------------- | ------------------- |
+| `GET`    | `/user`                | Consultar usuários. |
+| `POST`   | `/user/signup`         | Cadastrar usuário.  |
+| `POST`   | `/user/login`          | Login do usuário.   |
+| `DELETE` | `/user/remove-account` | Deletar conta.      |
+
+### 🏢 Empresa
+
+| Método   | Rota               | Descrição                    |
+| -------- | ------------------ | ---------------------------- |
+| `GET`    | `/enterprise`      | Consultar todas as empresas. |
+| `POST`   | `/enterprise`      | Criar empresa.               |
+| `PATCH`  | `/enterprise/{id}` | Atualizar empresa.           |
+| `DELETE` | `/enterprise/{id}` | Deletar empresa.             |
+
+### 📋 Leads
+
+| Método | Rota     | Descrição                 |
+| ------ | -------- | ------------------------- |
+| `GET`  | `/leads` | Consultar todos os leads. |
+| `POST` | `/leads` | Criar um lead.            |
+
+---
+
+## 🔑 Autenticação JWT no Swagger
+
+A API utiliza **JWT Bearer Token** para autenticação.
+
+### Passos para usar o JWT no Swagger
+
+1. **Realizar login**
+   
+   - Envie uma requisição `POST` para `/user/login` com:
+     
+     ```json
+     {
+      "email": "seuemail@teste.com",
+      "password": "suasenha"
+     }
+     ```
+   
+   - A resposta conterá um token JWT no campo `token`.
+
+2. **Configurar no Swagger**
+   
+   - No Swagger UI, clique no botão **Authorize** (ícone de cadeado).
+   
+   - No campo **Value**, insira:
+     
+     ```
+     SEU_TOKEN_AQUI
+     ```
+   
+   - Clique em **Authorize** e depois em **Close**.
+
+3. **Fazer requisições autenticadas**
+   
+   - Todos os endpoints protegidos serão acessíveis com o token configurado. Exceto as de login e signup
+
+💡 **Dica:** Tokens têm tempo de expiração. Caso expire, faça login novamente.
+
+---
+
+# 
+
+  
+
+
+---
+
+## 📚 Referências
+
+- [CRM: o que é, vantagens, como usar e tipos – RD Station](https://www.rdstation.com/blog/vendas/o-que-e-crm)
+
+---
