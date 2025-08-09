@@ -1,5 +1,3 @@
-
-
 # CRM – Projeto de Curso (4 Semanas)
 
 ## 📖 Definição do Produto
@@ -74,10 +72,11 @@ Os endpoints a seguir foram extraídos do arquivo **Requisições.json**.
 
 ### 📋 Leads
 
-| Método | Rota     | Descrição                 |
-| ------ | -------- | ------------------------- |
-| `GET`  | `/leads` | Consultar todos os leads. |
-| `POST` | `/leads` | Criar um lead.            |
+| Método | Rota          | Descrição                                |
+| ------ | ------------- | ---------------------------------------- |
+| `GET`  | `/leads`      | Consultar todos os leads.                |
+| `GET`  | `/leads/user` | Consulta todos os leads do usuário atual |
+| `POST` | `/leads`      | Criar um lead.                           |
 
 ---
 
@@ -119,11 +118,6 @@ A API utiliza **JWT Bearer Token** para autenticação.
 💡 **Dica:** Tokens têm tempo de expiração. Caso expire, faça login novamente.
 
 ---
-
-# 
-
-  
-
 
 ---
 
