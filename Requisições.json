@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "651fbc97-8d0b-4026-a7a8-d951e7f1a1d4",
+		"name": "TCrm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38486962"
+	},
+	"item": [
+		{
+			"name": "Consulta usuários",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Kaique",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Kaique Dias\",\"email\":\"teste@teste.com\",\"password\":\"123456@\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login como usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teste@teste.com\",\r\n    \"password\": \"123456@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar minha conta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"123456@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/remove-account",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"remove-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar todas as empresas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/enterprise",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar uma empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Empresa 1\",\r\n    \"description\": \"Empresa muito massa e legal\"\r\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/enterprise",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"enterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar um lead",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Marcos\",\r\n    \"description\": \"Empresa muito massa e legal\",\r\n    \"email\": \"teste@teste.com\",\r\n    \"cellNumber\": \"71 985119712\",\r\n    \"enterpriseID\": \"4ee2847b-809f-498d-b100-317e4d0d4936\"\r\n}  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/leads",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"leads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta uma determinada empresa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/enterprise/d1896fc9-3907-4521-9d13-2997fdba758d",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"enterprise",
+						"d1896fc9-3907-4521-9d13-2997fdba758d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar empresa",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Empresa 2\",\r\n    \"description\": \"Muito legal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/enterprise/6e475600-a4ae-4b20-ae75-69074a3be6e2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"enterprise",
+						"6e475600-a4ae-4b20-ae75-69074a3be6e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Leads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/leads",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"leads"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImYyYTZiNDAyLWRkOWUtNDk2MS05ZmZkLTQ0ZTQ1YjY2MTQ3ZCIsImlhdCI6MTc1NDc0NjQwMywiZXhwIjoxNzU2MDE2MzkyfQ.4vNfOmnBOe6sSANTSo9eKFNrJn0iGwMr1g42Pvog5Os",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
